@@ -37,15 +37,29 @@ module.exports = (grunt) ->
         files: ['test/**/*Spec.js']
         tasks: ['jasmine']
 
+    exec:
+      publish: 'git push origin master && npm publish'
+      commitRelease: 'git commit bower.json easy-date.min.js package.json -m "Release v<%= pkg.version %>"'
+
+    bump:
+      options:
+        files: ['package.json', 'bower.json']
+        updateConfigs: ['pkg']
+        pushTo: 'remote'
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-contrib-jasmine'
+  grunt.loadNpmTasks 'grunt-exec'
+  grunt.loadNpmTasks 'grunt-bump'
 
   grunt.registerTask 'test', [ 'jasmine' ]
   grunt.registerTask 'dev', [ 'coffee', 'jasmine', 'watch' ]
   grunt.registerTask 'default', [ 'test' ]
+
+  grunt.registerTask 'build', [ 'test', 'bump-only', 'uglify']
+  grunt.registerTask 'release', ['exec:commitRelease', 'exec:publish']
 
   return
