@@ -2,11 +2,13 @@
   "name": "easy-date",
   "main": "easy-date.js",
   "description": "A Javascript plugin for easy date manipulation.",
-  "version": "0.1.1",
+  "version": "0.9.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:melvinsembrano/easy-date.git"
   },
+  "author": "Melvin Sembrano <melvinsembrano@gmail.com> (https://github.com/melvinsembrano/easy-date)",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-coffee": "^0.13.0",
