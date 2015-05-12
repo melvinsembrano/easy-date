@@ -45,6 +45,7 @@ describe('EasyDate', function() {
       var now = new Date();
       expect(3..months().ago().getMonth()).toBe(now.getMonth() - 3);
     });
+
   });
 
 });
