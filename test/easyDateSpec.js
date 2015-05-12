@@ -69,5 +69,37 @@ describe('EasyDate', function() {
     });
   });
 
+  describe('#years', function() {
+    it('can get the number of months', function() {
+      expect(2..years().value).toBe(2);
+      expect(1..year().type).toBe("year");
+    });
+
+    it('will get the correct grammar', function() {
+      expect(1..year().toString()).toBe("1 year");
+      expect(3..years().toString()).toBe("3 years");
+      expect(5..years().toString()).toBe("5 years");
+    });
+
+    it('#fromNow', function() {
+      var now = new Date();
+      expect(3..years().fromNow().getFullYear()).toBe(now.getFullYear() + 3);
+    });
+
+    it('#ago', function() {
+      var now = new Date();
+      expect(3..years().ago().getFullYear()).toBe(now.getFullYear() - 3);
+    });
+
+    it('#since', function() {
+      var now = new Date(2015, 3, 10);
+      expect(3..years().since(now).getFullYear()).toBe(2018);
+    });
+
+    it('#until', function() {
+      var now = new Date(2015, 9, 10);
+      expect(3..years().until(now).getFullYear()).toBe(2012);
+    });
+  });
 });
 
