@@ -1,5 +1,67 @@
 describe('EasyDate', function() {
 
+  it('will return the correct date 5 days from now', function() {
+    var now = new Date();
+    now.setDate(now.getDate() + 5);
+    var newDate = 5..days().fromNow();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+  it('will return the correct date 5 days ago', function() {
+    var now = new Date();
+    now.setDate(now.getDate() - 5);
+    var newDate = 5..days().ago();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+  it('will return the correct date 5 months from now', function() {
+    var now = new Date();
+    now.setMonth(now.getMonth() + 5);
+    var newDate = 5..months().fromNow();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+  it('will return the correct date 5 months ago', function() {
+    var now = new Date();
+    now.setMonth(now.getMonth() - 5);
+    var newDate = 5..months().ago();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+  it('will return the correct date 5 years from now', function() {
+    var now = new Date();
+    now.setFullYear(now.getFullYear() + 5);
+    var newDate = 5..years().fromNow();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+  it('will return the correct date 5 years ago', function() {
+    var now = new Date();
+    now.setFullYear(now.getFullYear() - 5);
+    var newDate = 5..years().ago();
+
+    expect(newDate.getYear()).toBe(newDate.getYear())
+    expect(newDate.getMonth()).toBe(newDate.getMonth())
+    expect(newDate.getDate()).toBe(newDate.getDate())
+  });
+
+
+
   describe('#days', function() {
     it('can get the number of days', function() {
       expect(2..days().value).toBe(2);

@@ -33,11 +33,11 @@ EasyDate.prototype.ago = ->
 
 
 EasyDate.prototype.since = (date) ->
-  @now = date
+  @now = new Date(date.valueOf())
   @fromNow()
 
 EasyDate.prototype.until = (date) ->
-  @now = date
+  @now = new Date(date.valueOf())
   @ago()
 
 EasyDate.prototype._daysFromNow = ->

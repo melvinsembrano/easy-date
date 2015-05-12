@@ -47,12 +47,12 @@
   };
 
   EasyDate.prototype.since = function(date) {
-    this.now = date;
+    this.now = new Date(date.valueOf());
     return this.fromNow();
   };
 
   EasyDate.prototype.until = function(date) {
-    this.now = date;
+    this.now = new Date(date.valueOf());
     return this.ago();
   };
 
