@@ -1,7 +1,7 @@
 {
   "name": "easy-date",
   "main": "easy-date.js",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "homepage": "https://github.com/melvinsembrano/easy-date",
   "authors": [
     "Melvin Sembrano <melvinsembrano@gmail.com>"
