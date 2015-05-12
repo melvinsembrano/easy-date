@@ -30,6 +30,14 @@ EasyDate.prototype.ago = ->
     else console.warn "EasyDate: #{ @type }().ago() not yet implemented."
 
 
+EasyDate.prototype.since = (date) ->
+  @now = date
+  @fromNow()
+
+EasyDate.prototype.until = (date) ->
+  @now = date
+  @ago()
+
 EasyDate.prototype._daysFromNow = ->
   now = @now || new Date()
   now.setDate(now.getDate() + @value)

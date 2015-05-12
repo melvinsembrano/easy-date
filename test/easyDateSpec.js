@@ -21,6 +21,18 @@ describe('EasyDate', function() {
       var now = new Date();
       expect(3..days().ago().getDate()).toBe(now.getDate() - 3);
     });
+
+    it('#since', function() {
+      var now = new Date(2015, 3, 10);
+      expect(3..days().since(now).getDate()).toBe(13);
+    });
+
+    it('#until', function() {
+      var now = new Date(2015, 3, 10);
+      var newDate = now.getDate() - 3;
+      expect(3..days().until(now).getDate()).toBe(newDate);
+    });
+
   });
 
 
@@ -46,6 +58,15 @@ describe('EasyDate', function() {
       expect(3..months().ago().getMonth()).toBe(now.getMonth() - 3);
     });
 
+    it('#since', function() {
+      var now = new Date(2015, 3, 10);
+      expect(3..months().since(now).getMonth()).toBe(6);
+    });
+
+    it('#until', function() {
+      var now = new Date(2015, 9, 10);
+      expect(3..months().until(now).getMonth()).toBe(6);
+    });
   });
 
 });

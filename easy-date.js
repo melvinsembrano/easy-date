@@ -1,5 +1,5 @@
 (function() {
-  var EasyDate, days, exports, months;
+  var EasyDate, days, months;
 
   EasyDate = function(value, type) {
     var types;
@@ -40,6 +40,16 @@
       default:
         return console.warn("EasyDate: " + this.type + "().ago() not yet implemented.");
     }
+  };
+
+  EasyDate.prototype.since = function(date) {
+    this.now = date;
+    return this.fromNow();
+  };
+
+  EasyDate.prototype.until = function(date) {
+    this.now = date;
+    return this.ago();
   };
 
   EasyDate.prototype._daysFromNow = function() {
@@ -85,11 +95,5 @@
   Number.prototype.month = months;
 
   Number.prototype.months = months;
-
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = EasyDate;
-    }
-  }
 
 }).call(this);

@@ -31,11 +31,11 @@ module.exports = (grunt) ->
     watch:
       source:
         files: ['src/*.coffee']
-        tasks: ['coffee:compile', 'karma']
+        tasks: ['coffee:compile', 'jasmine']
 
       tests:
         files: ['test/**/*Spec.js']
-        tasks: ['karma']
+        tasks: ['jasmine']
 
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
