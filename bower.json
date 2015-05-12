@@ -6,7 +6,7 @@
   "authors": [
     "Melvin Sembrano <melvinsembrano@gmail.com>"
   ],
-  "description": "A Javascript plugin for easy date manipulation.",
+  "description": "EasyDate is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.",
 
   "keywords": [
     "EasyDate",

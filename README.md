@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/melvinsembrano/easy-date.svg?branch=master)](https://travis-ci.org/melvinsembrano/easy-date)
 # EasyDate
-EasyDate is a Javascript extension for easy Dates manipulations.
+EasyDate is a Javascript extension for easy dates manipulations which is
+heavily inspired by Rails ActiveSupport::Duration class.
 
 ### Installation
 TODO
