@@ -2,7 +2,15 @@
   "name": "easy-date",
   "main": "easy-date.js",
   "description": "EasyDate is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.",
-  "version": "0.9.1",
+  "version": "0.9.2",
+  "keywords": [
+    "EasyDate",
+    "Easy Date",
+    "Rails Date",
+    "Javascript Date",
+    "Rails like javascript date",
+    "ruby date"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:melvinsembrano/easy-date.git"
@@ -11,10 +19,12 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.1",
     "grunt-contrib-coffee": "^0.13.0",
     "grunt-contrib-jasmine": "^0.8.2",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6",
     "grunt-karma": "^0.10.1",
     "jasmine": "^2.3.1",
     "jasmine-core": "^2.3.3",
