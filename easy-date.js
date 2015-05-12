@@ -1,5 +1,5 @@
 (function() {
-  var EasyDate, days, months;
+  var EasyDate, days, exports, months;
 
   EasyDate = function(value, type) {
     var types;
@@ -85,5 +85,11 @@
   Number.prototype.month = months;
 
   Number.prototype.months = months;
+
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = EasyDate;
+    }
+  }
 
 }).call(this);

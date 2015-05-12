@@ -16,6 +16,13 @@ module.exports = (grunt) ->
         files:
           '<%= pkg.name %>.js': 'src/easy-date.coffee'
 
+    jasmine:
+      tests:
+        src: 'easy-date.js'
+        options:
+          specs: 'test/**/*Spec.js'
+          helpers: 'test/helpers/*.js'
+
     karma:
       unit:
         configFile: 'karma.conf.js'
@@ -35,9 +42,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-karma'
+  grunt.loadNpmTasks 'grunt-contrib-jasmine'
 
-  grunt.registerTask 'default', [ 'karma' ]
-  grunt.registerTask 'test', [ 'karma' ]
-  grunt.registerTask 'dev', [ 'coffee', 'karma', 'watch' ]
+  grunt.registerTask 'test', [ 'jasmine' ]
+  grunt.registerTask 'dev', [ 'coffee', 'jasmine', 'watch' ]
+  grunt.registerTask 'default', [ 'test' ]
 
   return
