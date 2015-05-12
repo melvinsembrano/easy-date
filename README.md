@@ -38,7 +38,7 @@ num.years().since(today); //==> is equal to 5..years().fromNow()
 
 ```
 
-### Contributing to easy-date
+#### Contributing to easy-date
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
