@@ -1,0 +1,26 @@
+{
+  "name": "easy-date",
+  "main": "easy-date.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/melvinsembrano/easy-date",
+  "authors": [
+    "Melvin Sembrano <melvinsembrano@gmail.com>"
+  ],
+  "description": "A Javascript plugin for easy date manipulation.",
+
+  "keywords": [
+    "EasyDate",
+    "Date",
+    "Javascript Date"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+
+  ]
+}
