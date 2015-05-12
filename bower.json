@@ -20,7 +20,10 @@
     "bower_components",
     "test",
     "tests",
-    "src"
+    "src",
+    "karma.conf.js",
+    "Gruntfile.coffee",
+    "package.json"
 
   ]
 }
