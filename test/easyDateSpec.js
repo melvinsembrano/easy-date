@@ -178,12 +178,14 @@ describe('EasyDate', function() {
 
     it('#fromNow', function() {
       var now = new Date();
-      expect(3..hours().fromNow().getHours()).toBe(now.getHours() + 3);
+      now.setHours(now.getHours() + 3);
+      expect(3..hours().fromNow().getHours()).toBe(now.getHours());
     });
 
     it('#ago', function() {
       var now = new Date();
-      expect(3..hours().ago().getHours()).toBe(now.getHours() - 3);
+      now.setHours(now.getHours() - 3);
+      expect(3..hours().ago().getHours()).toBe(now.getHours());
     });
 
     it('#since', function() {
