@@ -5,8 +5,6 @@ EasyDate = (value, type) ->
     2: "month"
     3: "year"
     4: "hour"
-    5: "minute"
-    6: "second"
 
   @value = parseInt(value)
   @type = types[type]
@@ -22,6 +20,7 @@ EasyDate.prototype.fromNow = ->
     when "day" then @_daysFromNow()
     when "month" then @_monthsFromNow()
     when "year" then @_yearsFromNow()
+    when "hour" then @_hoursFromNow()
     else console.warn "EasyDate: #{ @type }().fromNow() not yet implemented."
 
 EasyDate.prototype.ago = ->
@@ -29,6 +28,7 @@ EasyDate.prototype.ago = ->
     when "day" then @_daysAgo()
     when "month" then @_monthsAgo()
     when "year" then @_yearsAgo()
+    when "hour" then @_hoursAgo()
     else console.warn "EasyDate: #{ @type }().ago() not yet implemented."
 
 
@@ -70,6 +70,17 @@ EasyDate.prototype._yearsAgo = ->
   now.setFullYear(now.getFullYear() - @value)
   now
 
+EasyDate.prototype._hoursFromNow = ->
+  now = @now || new Date()
+  now.setHours(now.getHours() + @value)
+  now
+
+EasyDate.prototype._hoursAgo = ->
+  now = @now || new Date()
+  now.setHours(now.getHours() - @value)
+  now
+
+
 days = ->
   new EasyDate(this, 0)
 months = ->
@@ -77,13 +88,15 @@ months = ->
 years = ->
   new EasyDate(this, 3)
 
-
+hours = ->
+  new EasyDate(this, 4)
 
 Number.prototype.day = days
 Number.prototype.days = days
 Number.prototype.month = months
 Number.prototype.months = months
-
 Number.prototype.years = years
 Number.prototype.year = years
+Number.prototype.hours = hours
+Number.prototype.hour = hours
 

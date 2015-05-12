@@ -1,5 +1,5 @@
 (function() {
-  var EasyDate, days, months, years;
+  var EasyDate, days, hours, months, years;
 
   EasyDate = function(value, type) {
     var types;
@@ -8,9 +8,7 @@
       1: "week",
       2: "month",
       3: "year",
-      4: "hour",
-      5: "minute",
-      6: "second"
+      4: "hour"
     };
     this.value = parseInt(value);
     this.type = types[type];
@@ -28,6 +26,8 @@
         return this._monthsFromNow();
       case "year":
         return this._yearsFromNow();
+      case "hour":
+        return this._hoursFromNow();
       default:
         return console.warn("EasyDate: " + this.type + "().fromNow() not yet implemented.");
     }
@@ -41,6 +41,8 @@
         return this._monthsAgo();
       case "year":
         return this._yearsAgo();
+      case "hour":
+        return this._hoursAgo();
       default:
         return console.warn("EasyDate: " + this.type + "().ago() not yet implemented.");
     }
@@ -98,6 +100,20 @@
     return now;
   };
 
+  EasyDate.prototype._hoursFromNow = function() {
+    var now;
+    now = this.now || new Date();
+    now.setHours(now.getHours() + this.value);
+    return now;
+  };
+
+  EasyDate.prototype._hoursAgo = function() {
+    var now;
+    now = this.now || new Date();
+    now.setHours(now.getHours() - this.value);
+    return now;
+  };
+
   days = function() {
     return new EasyDate(this, 0);
   };
@@ -108,6 +124,10 @@
 
   years = function() {
     return new EasyDate(this, 3);
+  };
+
+  hours = function() {
+    return new EasyDate(this, 4);
   };
 
   Number.prototype.day = days;
@@ -121,5 +141,9 @@
   Number.prototype.years = years;
 
   Number.prototype.year = years;
+
+  Number.prototype.hours = hours;
+
+  Number.prototype.hour = hours;
 
 }).call(this);

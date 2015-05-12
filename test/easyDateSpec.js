@@ -132,7 +132,7 @@ describe('EasyDate', function() {
   });
 
   describe('#years', function() {
-    it('can get the number of months', function() {
+    it('can get the number of years', function() {
       expect(2..years().value).toBe(2);
       expect(1..year().type).toBe("year");
     });
@@ -161,6 +161,39 @@ describe('EasyDate', function() {
     it('#until', function() {
       var now = new Date(2015, 9, 10);
       expect(3..years().until(now).getFullYear()).toBe(2012);
+    });
+  });
+
+  describe('#hours', function() {
+    it('can get the number of hours', function() {
+      expect(2..hours().value).toBe(2);
+      expect(1..hour().type).toBe("hour");
+    });
+
+    it('will get the correct grammar', function() {
+      expect(1..hour().toString()).toBe("1 hour");
+      expect(3..hours().toString()).toBe("3 hours");
+      expect(5..hours().toString()).toBe("5 hours");
+    });
+
+    it('#fromNow', function() {
+      var now = new Date();
+      expect(3..hours().fromNow().getHours()).toBe(now.getHours() + 3);
+    });
+
+    it('#ago', function() {
+      var now = new Date();
+      expect(3..hours().ago().getHours()).toBe(now.getHours() - 3);
+    });
+
+    it('#since', function() {
+      var now = new Date(2015, 3, 10, 12);
+      expect(3..hours().since(now).getHours()).toBe(15);
+    });
+
+    it('#until', function() {
+      var now = new Date(2015, 9, 10, 12);
+      expect(3..hours().until(now).getHours()).toBe(9);
     });
   });
 });
