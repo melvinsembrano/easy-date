@@ -11,7 +11,24 @@ heavily inspired by Rails ActiveSupport::Duration class.
 [**Download the latest**](https://github.com/melvinsembrano/easy-date/archive/master.zip)
 
 ### Usage
-TODO
+**Node.js**
+```
+require('easy-date');
+```
+**In Browser**
+```
+<script src="easy-date.js"></script>
+```
+**Quickstart usage:**
+```
+
+var nextDate = 3..days().fromNow();
+var prevDate = 10..months().ago();
+
+5..years().since(newDate);
+
+
+```
 
 ### Contributing
 TODO
