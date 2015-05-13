@@ -4,7 +4,7 @@ EasyDate is a Javascript extension for easy dates manipulations which is
 heavily inspired by Rails ActiveSupport::Duration class.
 
 ### Installation
-**Node.js** `npm install easy-date --save-dev`
+**Node.js** `npm install easy-date`
 
 **Bower** `bower install easy-date`
 
