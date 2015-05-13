@@ -1,3 +1,9 @@
+###
+# EasyDate
+# is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.
+# Copyright (c) 2015 Melvin Sembrano (melvinsembrano@gmail.com)
+# License: MIT
+###
 EasyDate = (value, type) ->
   types =
     0: "day"

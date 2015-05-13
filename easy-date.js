@@ -1,3 +1,11 @@
+
+/*
+ * EasyDate
+ * is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.
+ * Copyright (c) 2015 Melvin Sembrano (melvinsembrano@gmail.com)
+ * License: MIT
+ */
+
 (function() {
   var EasyDate, days, hours, months, years;
 
