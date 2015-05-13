@@ -38,7 +38,7 @@ module.exports = (grunt) ->
         tasks: ['jasmine']
 
     exec:
-      publish: 'git push origin master && npm publish'
+      publish: 'git push origin master && git push --tags && npm publish'
       commitRelease: 'git commit bower.json easy-date.min.js package.json -m "Release v<%= pkg.version %>"'
 
     bump:
