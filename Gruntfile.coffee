@@ -38,6 +38,7 @@ module.exports = (grunt) ->
         tasks: ['jasmine']
 
     exec:
+      tagRelease: 'git tag v<%= pkg.version %>'
       publish: 'git push origin master && git push --tags && npm publish'
       commitRelease: 'git commit bower.json easy-date.min.js package.json -m "Release v<%= pkg.version %>"'
 
@@ -60,6 +61,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [ 'test' ]
 
   grunt.registerTask 'build', [ 'test', 'bump-only', 'uglify']
-  grunt.registerTask 'release', ['exec:commitRelease', 'exec:publish']
+  grunt.registerTask 'release', ['exec:commitRelease', 'exec:tagRelease', 'exec:publish']
 
   return
