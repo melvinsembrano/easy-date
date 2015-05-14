@@ -28,14 +28,21 @@ by adding the codes above, new methods are now available on all numbers:
 * hour(), hours()
 ```
 var date1 = 3..days().fromNow();
-var date2 = 10..months().ago();
+var date2 = (10).months().ago();
 
 var yesterday = 1..day().ago();
 var today = new Date();
 var num = 5;
-num.years().until(today); //==> is equal to 5..years().ago()
+num.years().before(today); //==> is equal to 5..years().ago()
 num.years().since(today); //==> is equal to 5..years().fromNow()
 
+```
+
+it will also add some basic date helpers
+```
+Date.today() //=> new Date()
+Date.yesterday() //=> 1..day().ago()
+Date.tommorrow() //=> 1..day().fromNow()
 ```
 
 #### Contributing to easy-date

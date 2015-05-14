@@ -66,6 +66,10 @@
     return this.ago();
   };
 
+  EasyDate.prototype.before = function(date) {
+    return this.until(date);
+  };
+
   EasyDate.prototype._daysFromNow = function() {
     var now;
     now = this.now || new Date();
@@ -153,5 +157,17 @@
   Number.prototype.hours = hours;
 
   Number.prototype.hour = hours;
+
+  Date.today = function() {
+    return new this();
+  };
+
+  Date.yesterday = function() {
+    return 1..day().ago();
+  };
+
+  Date.tommorrow = function() {
+    return 1..day().fromNow();
+  };
 
 }).call(this);

@@ -95,6 +95,11 @@ describe('EasyDate', function() {
       expect(3..days().until(now).getDate()).toBe(newDate);
     });
 
+    it('#before', function() {
+      var now = new Date(2015, 3, 10);
+      var newDate = now.getDate() - 3;
+      expect(3..days().before(now).getDate()).toBe(newDate);
+    });
   });
 
 
@@ -129,6 +134,11 @@ describe('EasyDate', function() {
       var now = new Date(2015, 9, 10);
       expect(3..months().until(now).getMonth()).toBe(6);
     });
+
+    it('#before', function() {
+      var now = new Date(2015, 9, 10);
+      expect(3..months().before(now).getMonth()).toBe(6);
+    });
   });
 
   describe('#years', function() {
@@ -161,6 +171,11 @@ describe('EasyDate', function() {
     it('#until', function() {
       var now = new Date(2015, 9, 10);
       expect(3..years().until(now).getFullYear()).toBe(2012);
+    });
+
+    it('#before', function() {
+      var now = new Date(2015, 9, 10);
+      expect(3..years().before(now).getFullYear()).toBe(2012);
     });
   });
 
@@ -196,6 +211,11 @@ describe('EasyDate', function() {
     it('#until', function() {
       var now = new Date(2015, 9, 10, 12);
       expect(3..hours().until(now).getHours()).toBe(9);
+    });
+
+    it('#before', function() {
+      var now = new Date(2015, 9, 10, 12);
+      expect(3..hours().before(now).getHours()).toBe(9);
     });
   });
 });

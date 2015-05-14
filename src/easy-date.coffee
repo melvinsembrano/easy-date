@@ -46,6 +46,9 @@ EasyDate.prototype.until = (date) ->
   @now = new Date(date.valueOf())
   @ago()
 
+EasyDate.prototype.before = (date) ->
+  @until(date)
+
 EasyDate.prototype._daysFromNow = ->
   now = @now || new Date()
   now.setDate(now.getDate() + @value)
@@ -106,3 +109,11 @@ Number.prototype.year = years
 Number.prototype.hours = hours
 Number.prototype.hour = hours
 
+Date.today = ->
+  new this()
+
+Date.yesterday = ->
+  1.day().ago()
+
+Date.tommorrow = ->
+  1.day().fromNow()
