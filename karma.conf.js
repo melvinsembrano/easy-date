@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'easy-date-plus.js',
+      'easy-date.js',
       'test/**/*Spec.js'
     ],
 

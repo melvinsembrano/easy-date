@@ -8,20 +8,20 @@ module.exports = (grunt) ->
       build:
         src: '<%= pkg.name %>.js'
         dest: '<%= pkg.name %>.min.js'
-      build_plus:
-        src: '<%= pkg.name %>-plus.js'
-        dest: '<%= pkg.name %>-plus.min.js'
+      build_light:
+        src: '<%= pkg.name %>-light.js'
+        dest: '<%= pkg.name %>-light.min.js'
     coffee:
       compile:
         options:
           bare: false
         files:
-          '<%= pkg.name %>.js': ['src/easy-date.coffee']
-          '<%= pkg.name %>-plus.js': ['src/easy-date.coffee', 'src/date-format.coffee']
+          '<%= pkg.name %>-light.js': ['src/easy-date.coffee']
+          '<%= pkg.name %>.js': ['src/easy-date.coffee', 'src/date-format.coffee']
 
     jasmine:
       tests:
-        src: 'easy-date-plus.js'
+        src: 'easy-date.js'
         options:
           specs: 'test/**/*Spec.js'
           helpers: 'test/helpers/*.js'
