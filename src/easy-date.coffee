@@ -21,74 +21,79 @@ EasyDate.prototype.toString = ->
   "#{ @value } #{ @type }#{ if @value > 1 then 's' else '' }"
 
 
-EasyDate.prototype.fromNow = ->
+EasyDate.prototype.fromNow = (mask) ->
   switch @type
-    when "day" then @_daysFromNow()
-    when "month" then @_monthsFromNow()
-    when "year" then @_yearsFromNow()
-    when "hour" then @_hoursFromNow()
+    when "day" then @_daysFromNow(mask)
+    when "month" then @_monthsFromNow(mask)
+    when "year" then @_yearsFromNow(mask)
+    when "hour" then @_hoursFromNow(mask)
     else console.warn "EasyDate: #{ @type }().fromNow() not yet implemented."
 
-EasyDate.prototype.ago = ->
+EasyDate.prototype.ago =  (mask) ->
   switch @type
-    when "day" then @_daysAgo()
-    when "month" then @_monthsAgo()
-    when "year" then @_yearsAgo()
-    when "hour" then @_hoursAgo()
+    when "day" then @_daysAgo(mask)
+    when "month" then @_monthsAgo(mask)
+    when "year" then @_yearsAgo(mask)
+    when "hour" then @_hoursAgo(mask)
     else console.warn "EasyDate: #{ @type }().ago() not yet implemented."
 
 
-EasyDate.prototype.since = (date) ->
+EasyDate.prototype.since = (date, mask) ->
   @now = new Date(date.valueOf())
-  @fromNow()
+  @fromNow(mask)
 
-EasyDate.prototype.until = (date) ->
+EasyDate.prototype.until = (date, mask) ->
   @now = new Date(date.valueOf())
-  @ago()
+  @ago(mask)
 
-EasyDate.prototype.before = (date) ->
-  @until(date)
+EasyDate.prototype.before = (date, mask) ->
+  @until(date, mask)
 
-EasyDate.prototype._daysFromNow = ->
+EasyDate.prototype._daysFromNow = (mask) ->
   now = @now || new Date()
   now.setDate(now.getDate() + @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._daysAgo = ->
+EasyDate.prototype._daysAgo = (mask) ->
   now = @now || new Date()
   now.setDate(now.getDate() - @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._monthsFromNow = ->
+EasyDate.prototype._monthsFromNow = (mask) ->
   now = @now || new Date()
   now.setMonth(now.getMonth() + @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._monthsAgo = ->
+EasyDate.prototype._monthsAgo = (mask) ->
   now = @now || new Date()
   now.setMonth(now.getMonth() - @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._yearsFromNow = ->
+EasyDate.prototype._yearsFromNow = (mask) ->
   now = @now || new Date()
   now.setFullYear(now.getFullYear() + @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._yearsAgo = ->
+EasyDate.prototype._yearsAgo = (mask) ->
   now = @now || new Date()
   now.setFullYear(now.getFullYear() - @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._hoursFromNow = ->
+EasyDate.prototype._hoursFromNow = (mask) ->
   now = @now || new Date()
   now.setHours(now.getHours() + @value)
-  now
+  formatDate(now, mask)
 
-EasyDate.prototype._hoursAgo = ->
+EasyDate.prototype._hoursAgo = (mask) ->
   now = @now || new Date()
   now.setHours(now.getHours() - @value)
-  now
+  formatDate(now, mask)
 
+formatDate = (date, mask) ->
+  if mask is undefined
+    date
+  else
+    date.format(mask)
 
 days = ->
   new EasyDate(this, 0)
@@ -109,11 +114,12 @@ Number.prototype.year = years
 Number.prototype.hours = hours
 Number.prototype.hour = hours
 
-Date.today = ->
-  new this()
+Date.today = (mask) ->
+  formatDate((new this()), mask)
 
-Date.yesterday = ->
-  1.day().ago()
+Date.yesterday = (mask) ->
+  1.day().ago(mask)
 
-Date.tommorrow = ->
-  1.day().fromNow()
+Date.tommorrow = (mask) ->
+  1.day().fromNow(mask)
+

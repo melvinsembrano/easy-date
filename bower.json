@@ -1,7 +1,7 @@
 {
   "name": "easy-date",
   "main": "easy-date.js",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "homepage": "https://github.com/melvinsembrano/easy-date",
   "authors": [
     "Melvin Sembrano <melvinsembrano@gmail.com>"
@@ -11,7 +11,10 @@
   "keywords": [
     "EasyDate",
     "Date",
-    "Javascript Date"
+    "Javascript Date",
+    "format",
+    "date format",
+    "javascript date format"
   ],
   "license": "MIT",
   "ignore": [
