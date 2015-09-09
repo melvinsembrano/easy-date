@@ -45,6 +45,15 @@ Date.yesterday() //=> 1..day().ago()
 Date.tommorrow() //=> 1..day().fromNow()
 ```
 
+#### Formatting
+The date.format library written by Steven Levithan (http://blog.stevenlevithan.com/archives/date-time-format) is now integrated for a very nice date formatting.
+
+```
+5..days().fromNow().format("d mmmm yyyy");
+// is same as
+5..days().fromNow("d mmmm yyyy");
+```
+
 #### Contributing to easy-date
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
