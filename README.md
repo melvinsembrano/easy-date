@@ -52,6 +52,13 @@ The date.format library written by Steven Levithan (http://blog.stevenlevithan.c
 5..days().fromNow().format("d mmmm yyyy");
 // is same as
 5..days().fromNow("d mmmm yyyy");
+
+Date.today("yyyy-mm-dd");
+
+Date.yesterday("dddd");
+
+3..days().since(Date.yesterday(), "mmm dd, yyyy");
+
 ```
 
 [Check the complete formatting here](FORMATTING.md)
