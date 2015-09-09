@@ -53,12 +53,10 @@ The date.format library written by Steven Levithan (http://blog.stevenlevithan.c
 // is same as
 5..days().fromNow("d mmmm yyyy");
 
+// other functions
 Date.today("yyyy-mm-dd");
-
 Date.yesterday("dddd");
-
 3..days().since(Date.yesterday(), "mmm dd, yyyy");
-
 ```
 
 [Check the complete formatting here](FORMATTING.md)
