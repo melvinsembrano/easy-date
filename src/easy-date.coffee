@@ -89,7 +89,6 @@ EasyDate.prototype._hoursAgo = ->
   now.setHours(now.getHours() - @value)
   now
 
-
 days = ->
   new EasyDate(this, 0)
 months = ->
@@ -117,3 +116,4 @@ Date.yesterday = ->
 
 Date.tommorrow = ->
   1.day().fromNow()
+
