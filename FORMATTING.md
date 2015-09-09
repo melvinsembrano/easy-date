@@ -14,31 +14,20 @@
 | `hh` | Hours; leading zero for single-digit hours (12-hour clock). |
 | `H` | Hours; no leading zero for single-digit hours (24-hour clock). |
 | `HH` | Hours; leading zero for single-digit hours (24-hour clock). |
-| `M` | Minutes; no leading zero for single-digit minutes.
- <span class="small">Uppercase M unlike CF `timeFormat`'s m to avoid conflict with months.</span> |
-| `MM` | Minutes; leading zero for single-digit minutes.
- <span class="small">Uppercase MM unlike CF `timeFormat`'s mm to avoid conflict with months.</span> |
+| `M` | Minutes; no leading zero for single-digit minutes. Uppercase M unlike CF `timeFormat`'s m to avoid conflict with months. |
+| `MM` | Minutes; leading zero for single-digit minutes. Uppercase MM unlike CF `timeFormat`'s mm to avoid conflict with months. |
 | `s` | Seconds; no leading zero for single-digit seconds. |
 | `ss` | Seconds; leading zero for single-digit seconds. |
 | `l` _or_ `L` | Milliseconds. `l` gives 3 digits. `L` gives 2 digits. |
-| `t` | Lowercase, single-character time marker string: _a_ or _p_.
- <span class="small">No equivalent in CF.</span> |
-| `tt` | Lowercase, two-character time marker string: _am_ or _pm_.
- <span class="small">No equivalent in CF.</span> |
-| `T` | Uppercase, single-character time marker string: _A_ or _P_.
- <span class="small">Uppercase T unlike CF's t to allow for user-specified casing.</span> |
-| `TT` | Uppercase, two-character time marker string: _AM_ or _PM_.
- <span class="small">Uppercase TT unlike CF's tt to allow for user-specified casing.</span> |
-| `Z` | US timezone abbreviation, e.g. _EST_ or _MDT_. With non-US timezones or in the Opera browser, the GMT/UTC offset is returned, e.g. _GMT-0500_
- <span class="small">No equivalent in CF.</span> |
-| `o` | GMT/UTC timezone offset, e.g. _-0500_ or _+0230_.
- <span class="small">No equivalent in CF.</span> |
-| `S` | The date's ordinal suffix (_st_, _nd_, _rd_, or _th_). Works well with `d`.
- <span class="small">No equivalent in CF.</span> |
-| `'…'` _or_ `"…"` | Literal character sequence. Surrounding quotes are removed.
- <span class="small">No equivalent in CF.</span> |
-| `UTC:` | Must be the first four characters of the mask. Converts the date from local time to UTC/GMT/Zulu time before applying the mask. The "UTC:" prefix is removed.
- <span class="small">No equivalent in CF.</span> |
+| `t` | Lowercase, single-character time marker string: _a_ or _p_. |
+| `tt` | Lowercase, two-character time marker string: _am_ or _pm_. |
+| `T` | Uppercase, single-character time marker string: _A_ or _P_. Uppercase T unlike CF's t to allow for user-specified casing. |
+| `TT` | Uppercase, two-character time marker string: _AM_ or _PM_. Uppercase TT unlike CF's tt to allow for user-specified casing. |
+| `Z` | US timezone abbreviation, e.g. _EST_ or _MDT_. With non-US timezones or in the Opera browser, the GMT/UTC offset is returned, e.g. _GMT-0500_ |
+| `o` | GMT/UTC timezone offset, e.g. _-0500_ or _+0230_. |
+| `S` | The date's ordinal suffix (_st_, _nd_, _rd_, or _th_). Works well with `d`. |
+| `'…'` _or_ `"…"` | Literal character sequence. Surrounding quotes are removed. |
+| `UTC:` | Must be the first four characters of the mask. Converts the date from local time to UTC/GMT/Zulu time before applying the mask. The "UTC:" prefix is removed. |
 
 
 
