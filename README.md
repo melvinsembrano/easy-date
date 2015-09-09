@@ -54,6 +54,8 @@ The date.format library written by Steven Levithan (http://blog.stevenlevithan.c
 5..days().fromNow("d mmmm yyyy");
 ```
 
+[Check the complete formatting here](FORMATTING.md)
+
 #### Contributing to easy-date
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
