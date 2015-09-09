@@ -143,8 +143,9 @@ dateFormat.i18n =
     'November'
     'December'
   ]
-# For convenience...
 
-Date::format = (mask, utc) ->
-  dateFormat this, mask, utc
+# For convenience...
+if Date::format is undefined
+  Date::format = (mask, utc) ->
+    dateFormat this, mask, utc
 

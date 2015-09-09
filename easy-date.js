@@ -7,7 +7,7 @@
  */
 
 (function() {
-  var EasyDate, days, hours, months, years;
+  var EasyDate, days, formatDate, hours, months, years;
 
   EasyDate = function(value, type) {
     var types;
@@ -26,104 +26,112 @@
     return this.value + " " + this.type + (this.value > 1 ? 's' : '');
   };
 
-  EasyDate.prototype.fromNow = function() {
+  EasyDate.prototype.fromNow = function(mask) {
     switch (this.type) {
       case "day":
-        return this._daysFromNow();
+        return this._daysFromNow(mask);
       case "month":
-        return this._monthsFromNow();
+        return this._monthsFromNow(mask);
       case "year":
-        return this._yearsFromNow();
+        return this._yearsFromNow(mask);
       case "hour":
-        return this._hoursFromNow();
+        return this._hoursFromNow(mask);
       default:
         return console.warn("EasyDate: " + this.type + "().fromNow() not yet implemented.");
     }
   };
 
-  EasyDate.prototype.ago = function() {
+  EasyDate.prototype.ago = function(mask) {
     switch (this.type) {
       case "day":
-        return this._daysAgo();
+        return this._daysAgo(mask);
       case "month":
-        return this._monthsAgo();
+        return this._monthsAgo(mask);
       case "year":
-        return this._yearsAgo();
+        return this._yearsAgo(mask);
       case "hour":
-        return this._hoursAgo();
+        return this._hoursAgo(mask);
       default:
         return console.warn("EasyDate: " + this.type + "().ago() not yet implemented.");
     }
   };
 
-  EasyDate.prototype.since = function(date) {
+  EasyDate.prototype.since = function(date, mask) {
     this.now = new Date(date.valueOf());
-    return this.fromNow();
+    return this.fromNow(mask);
   };
 
-  EasyDate.prototype.until = function(date) {
+  EasyDate.prototype.until = function(date, mask) {
     this.now = new Date(date.valueOf());
-    return this.ago();
+    return this.ago(mask);
   };
 
-  EasyDate.prototype.before = function(date) {
-    return this.until(date);
+  EasyDate.prototype.before = function(date, mask) {
+    return this.until(date, mask);
   };
 
-  EasyDate.prototype._daysFromNow = function() {
+  EasyDate.prototype._daysFromNow = function(mask) {
     var now;
     now = this.now || new Date();
     now.setDate(now.getDate() + this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._daysAgo = function() {
+  EasyDate.prototype._daysAgo = function(mask) {
     var now;
     now = this.now || new Date();
     now.setDate(now.getDate() - this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._monthsFromNow = function() {
+  EasyDate.prototype._monthsFromNow = function(mask) {
     var now;
     now = this.now || new Date();
     now.setMonth(now.getMonth() + this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._monthsAgo = function() {
+  EasyDate.prototype._monthsAgo = function(mask) {
     var now;
     now = this.now || new Date();
     now.setMonth(now.getMonth() - this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._yearsFromNow = function() {
+  EasyDate.prototype._yearsFromNow = function(mask) {
     var now;
     now = this.now || new Date();
     now.setFullYear(now.getFullYear() + this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._yearsAgo = function() {
+  EasyDate.prototype._yearsAgo = function(mask) {
     var now;
     now = this.now || new Date();
     now.setFullYear(now.getFullYear() - this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._hoursFromNow = function() {
+  EasyDate.prototype._hoursFromNow = function(mask) {
     var now;
     now = this.now || new Date();
     now.setHours(now.getHours() + this.value);
-    return now;
+    return formatDate(now, mask);
   };
 
-  EasyDate.prototype._hoursAgo = function() {
+  EasyDate.prototype._hoursAgo = function(mask) {
     var now;
     now = this.now || new Date();
     now.setHours(now.getHours() - this.value);
-    return now;
+    return formatDate(now, mask);
+  };
+
+  formatDate = function(date, mask) {
+    if (mask === void 0) {
+      return date;
+    } else {
+      return date.format(mask);
+    }
   };
 
   days = function() {
@@ -158,16 +166,16 @@
 
   Number.prototype.hour = hours;
 
-  Date.today = function() {
-    return new this();
+  Date.today = function(mask) {
+    return formatDate(new this(), mask);
   };
 
-  Date.yesterday = function() {
-    return 1..day().ago();
+  Date.yesterday = function(mask) {
+    return 1..day().ago(mask);
   };
 
-  Date.tommorrow = function() {
-    return 1..day().fromNow();
+  Date.tommorrow = function(mask) {
+    return 1..day().fromNow(mask);
   };
 
 }).call(this);
@@ -288,8 +296,10 @@
     monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   };
 
-  Date.prototype.format = function(mask, utc) {
-    return dateFormat(this, mask, utc);
-  };
+  if (Date.prototype.format === void 0) {
+    Date.prototype.format = function(mask, utc) {
+      return dateFormat(this, mask, utc);
+    };
+  }
 
 }).call(this);
