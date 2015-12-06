@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/melvinsembrano/easy-date.svg?branch=master)](https://travis-ci.org/melvinsembrano/easy-date)
+[![npm version](https://badge.fury.io/js/easy-date.svg)](https://badge.fury.io/js/easy-date)
 # EasyDate
 EasyDate is a Javascript extension for easy dates manipulations which was
 heavily inspired by Rails ActiveSupport::Duration class.
