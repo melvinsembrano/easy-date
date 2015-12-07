@@ -117,12 +117,20 @@ describe('EasyDate', function() {
 
     it('#fromNow', function() {
       var now = new Date();
-      expect(3..months().fromNow().getMonth()).toBe(now.getMonth() + 3);
+      var res = now.getMonth() + 3;
+      if (res > 11) {
+        res = res - 12;
+      }
+      expect(3..months().fromNow().getMonth()).toBe(res);
     });
 
     it('#ago', function() {
       var now = new Date();
-      expect(3..months().ago().getMonth()).toBe(now.getMonth() - 3);
+      var res = now.getMonth() - 3;
+      if (res < 0) {
+        res = res + 12;
+      }
+      expect(3..months().ago().getMonth()).toBe(res);
     });
 
     it('#since', function() {
