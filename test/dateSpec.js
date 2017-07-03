@@ -1,3 +1,5 @@
+import '../easy-date-light'
+
 describe('Date', function() {
   it('will get the date today', function() {
     var now = new Date();

@@ -1,7 +1,7 @@
 {
   "name": "easy-date",
   "main": "easy-date.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/melvinsembrano/easy-date",
   "authors": [
     "Melvin Sembrano <melvinsembrano@gmail.com>"
@@ -27,7 +27,8 @@
     "karma.conf.js",
     "Gruntfile.coffee",
     "package.json",
-    "bower.json"
-
+    "bower.json",
+    "webpack.config*",
+    "yarn.lock"
   ]
 }

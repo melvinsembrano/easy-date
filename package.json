@@ -2,7 +2,7 @@
   "name": "easy-date",
   "main": "dist/easy-date.js",
   "description": "EasyDate is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "EasyDate",
     "Easy Date",
@@ -26,7 +26,10 @@
   "scripts": {
     "build": "webpack",
     "minify": "NODE_ENV=production webpack -p --config webpack.config.production.js",
-    "test": "jest"
+    "test": "jest",
+    "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo git tag v$PKGV",
+    "publish": "git push origin master && git push --tags && npm publish",
+    "commit": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit bower.json easy-date.min.js easy-date-light.min.js package.json -m \"Release v$PKGV\""
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -36,7 +39,7 @@
     "webpack": "^3.0.0"
   },
   "jest": {
-    "testRegex": "src/.*\\(Spec|Test).js",
+    "testRegex": "test/.*(Spec|Test).js",
     "verbose": true
   }
 }

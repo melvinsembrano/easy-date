@@ -1,3 +1,5 @@
+import '../easy-date'
+
 describe('EasyDate Formats', function() {
   it('dates will have a default format function', function() {
     var now = new Date(2015, 11,1);

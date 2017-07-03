@@ -1,3 +1,5 @@
+import '../easy-date-light'
+
 describe('EasyDate', function() {
 
   it('will return the correct date 5 days from now', function() {
@@ -81,7 +83,8 @@ describe('EasyDate', function() {
 
     it('#ago', function() {
       var now = new Date();
-      expect(3..days().ago().getDate()).toBe(now.getDate() - 3);
+      now.setDate(now.getDate() - 3);
+      expect(3..days().ago().getDate()).toBe(now.getDate());
     });
 
     it('#since', function() {
@@ -227,4 +230,3 @@ describe('EasyDate', function() {
     });
   });
 });
-
