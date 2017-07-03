@@ -27,7 +27,7 @@
     "build": "webpack",
     "minify": "NODE_ENV=production webpack -p --config webpack.config.production.js",
     "test": "jest",
-    "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo git tag v$PKGV",
+    "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PKGV",
     "publish": "git push origin master && git push --tags && npm publish",
     "commit": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit bower.json easy-date.min.js easy-date-light.min.js package.json -m \"Release v$PKGV\""
   },
