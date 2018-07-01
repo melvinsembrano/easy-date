@@ -2,7 +2,7 @@
   "name": "easy-date",
   "main": "easy-date.js",
   "description": "EasyDate is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.",
-  "version": "1.1.3",
+  "version": "1.2.0-rc0",
   "keywords": [
     "EasyDate",
     "Easy Date",
@@ -21,23 +21,27 @@
   "author": "Melvin Sembrano <melvinsembrano@gmail.com> (https://github.com/melvinsembrano/easy-date)",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
-    "jest": "^20.0.4",
-    "webpack": "^3.0.0"
+    "jest": "^23.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-merge": "^4.1.3"
   },
   "scripts": {
-    "build": "webpack",
-    "minify": "NODE_ENV=production webpack -p --config webpack.config.production.js",
+    "build": "webpack --config webpack.config.dev.js",
+    "build:min": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "build:all": "yarn build && yarn build:min",
     "test": "jest",
     "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PKGV",
     "publishRelease": "git push origin master && git push --tags && npm publish",
     "commit": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit bower.json easy-date.min.js easy-date-light.min.js package.json -m \"Release v$PKGV\""
   },
   "dependencies": {
-    "easy-date": "^1.1.1"
+    "easy-date": "^1.1.3"
   },
   "jest": {
     "testRegex": "test/.*(Spec|Test).js",
