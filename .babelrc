@@ -1,11 +1,7 @@
 {
+  "plugins": ["transform-class-properties"],
   "presets" : [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
-    "es2015",
+    "flow",
+    "env"
   ]
 }

@@ -1,4 +1,4 @@
-import '../easy-date-light'
+import '../src/easy-date'
 
 describe('EasyDate', function() {
 
@@ -67,7 +67,7 @@ describe('EasyDate', function() {
   describe('#days', function() {
     it('can get the number of days', function() {
       expect(2..days().value).toBe(2);
-      expect(1..day().type).toBe("day");
+      expect(1..day().conversionType).toBe("day");
     });
 
     it('will get the correct grammar', function() {
@@ -109,7 +109,7 @@ describe('EasyDate', function() {
   describe('#months', function() {
     it('can get the number of months', function() {
       expect(2..months().value).toBe(2);
-      expect(1..month().type).toBe("month");
+      expect(1..month().conversionType).toBe("month");
     });
 
     it('will get the correct grammar', function() {
@@ -155,7 +155,7 @@ describe('EasyDate', function() {
   describe('#years', function() {
     it('can get the number of years', function() {
       expect(2..years().value).toBe(2);
-      expect(1..year().type).toBe("year");
+      expect(1..year().conversionType).toBe("year");
     });
 
     it('will get the correct grammar', function() {
@@ -193,7 +193,7 @@ describe('EasyDate', function() {
   describe('#hours', function() {
     it('can get the number of hours', function() {
       expect(2..hours().value).toBe(2);
-      expect(1..hour().type).toBe("hour");
+      expect(1..hour().conversionType).toBe("hour");
     });
 
     it('will get the correct grammar', function() {

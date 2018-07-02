@@ -1,4 +1,4 @@
-import '../easy-date'
+import '../src/bundled'
 
 describe('EasyDate Formats', function() {
   it('dates will have a default format function', function() {
@@ -44,6 +44,7 @@ describe('EasyDate Formats', function() {
       var now = 2..days().until(Date.today());
       expect(2..days().until(Date.today(), "yyyy")).toBe(now.getFullYear().toString());
     });
+
     it('will return the actual date object if now masked is passed', function() {
       var now = 2..days().until(Date.today());
       expect(2..days().until(Date.today()) instanceof Date).toBe(true);

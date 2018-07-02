@@ -1,4 +1,4 @@
-import '../easy-date-light'
+import '../src/easy-date'
 
 describe('Date', function() {
   it('will get the date today', function() {
@@ -11,7 +11,7 @@ describe('Date', function() {
 
   it('will get the date tommorrow', function() {
     var now = 1..day().fromNow()
-    var today = Date.tommorrow();
+    var today = Date.tomorrow();
     expect(today.getDate()).toBe(now.getDate());
     expect(today.getFullYear()).toBe(now.getFullYear());
     expect(today.getMonth()).toBe(now.getMonth());

@@ -161,3 +161,5 @@ if (Date.prototype.format === undefined) {
     return dateFormat(this, mask, utc);
   };
 }
+
+export default dateFormat
