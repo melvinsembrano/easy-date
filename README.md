@@ -12,7 +12,7 @@ heavily inspired by Rails ActiveSupport::Duration class.
 [**Download the latest**](https://github.com/melvinsembrano/easy-date/archive/master.zip)
 
 ### Usage
-**Node.js**
+
 ```
 var easyDate = require('easy-date').easyDate;
 // or
