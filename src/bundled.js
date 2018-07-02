@@ -1,2 +1,2 @@
-import './easy-date'
-import './date-format'
+export * from './easy-date'
+export * from './date-format'

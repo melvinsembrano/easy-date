@@ -12,15 +12,36 @@ heavily inspired by Rails ActiveSupport::Duration class.
 [**Download the latest**](https://github.com/melvinsembrano/easy-date/archive/master.zip)
 
 ### Usage
-**Node.js**
+
 ```
-require('easy-date');
+var easyDate = require('easy-date').easyDate;
+// or
+import { easyDate, backwardCompatibility } from 'easy-date'
+
+// this will expose the number extension methods
+// which was a default before version 1.2
+backwardCompatibility(); 
+
 ```
-**In Browser**
+**Basic usage:**
+
 ```
-<script src="easy-date.js"></script>
+import { easyDate } from 'easy-date';
+
+let date1 = easyDate(3).days().ago();
+const date2 = easyDate(10).months().fromNow();
+const date3 = easyDate(5).years().ago();
+const date4 = easyDate(10).days().since(date2);
+const date5 = easyDate(1).year().before(date1);
+var yesterday = easyDate(24).hours().ago();
+
 ```
-**Quickstart usage:**
+**Legacy syntax usage:**
+
+```
+import { backwardCompatibility } from 'easy-date';
+backwardCompatibility();
+```
 
 by adding the codes above, new methods are now available on all numbers:
 * day(), days()
