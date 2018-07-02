@@ -16,7 +16,12 @@ heavily inspired by Rails ActiveSupport::Duration class.
 ```
 var easyDate = require('easy-date').easyDate;
 // or
-import { easyDate } from 'easy-date'
+import { easyDate, backwardCompatibility } from 'easy-date'
+
+// this will expose the number extension methods
+// which was a default before version 1.2
+backwardCompatibility(); 
+
 ```
 **Basic usage:**
 
