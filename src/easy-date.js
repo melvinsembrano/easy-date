@@ -102,6 +102,42 @@ export class EasyDate {
     return EasyDate.formatDate(new Date(), mask)
   }
 
+  static yesterday(mask?: string) {
+    return new EasyDate(1, 'day').ago(mask)
+  }
+
+  static tomorrow(mask?: string) {
+    return new EasyDate(1, 'day').fromNow(mask)
+  }
+}
+
+export function easyDate(value: Number) {
+  const days = function() {
+    return new EasyDate(value, 'day')
+  }
+
+  const months = function() {
+    return new EasyDate(value, 'month')
+  }
+
+  const years = function() {
+    return new EasyDate(value, 'year')
+  }
+
+  const hours = function() {
+    return new EasyDate(value, 'hour')
+  }
+
+  return {
+    hour: hours,
+    hours,
+    day: days,
+    days,
+    month: months,
+    months,
+    year: years,
+    years,
+  }
 }
 
 export function backwardCompatibility() {
@@ -138,32 +174,33 @@ export function backwardCompatibility() {
   Number.prototype.hours = hours;
   // $FlowFixMe
   Number.prototype.hour = hours;
+
+  // $FlowFixMe
+  Object.assign(Date, {
+
+    today(mask?: string) {
+      return EasyDate.today(mask);
+    },
+
+    yesterday(mask?: string) {
+      return EasyDate.yesterday(mask)
+    },
+
+    tomorrow(mask?: string) {
+      return EasyDate.tomorrow(mask)
+    },
+
+    tommorrow(mask?: string) {
+      return EasyDate.tomorrow(mask)
+    },
+
+  })
 }
 
-
-// $FlowFixMe
-Object.assign(Date, {
-
-  today(mask?: string) {
-    return EasyDate.today(mask);
-  },
-
-  yesterday(mask?: string) {
-    return new EasyDate(1, 'day').ago(mask)
-  },
-
-  tomorrow(mask?: string) {
-    return new EasyDate(1, 'day').fromNow(mask)
-  },
-
-  tommorrow(mask?: string) {
-    return new EasyDate(1, 'day').fromNow(mask)
-  },
-
-})
 
 
 export default {
   EasyDate,
+  easyDate,
   backwardCompatibility,
 }

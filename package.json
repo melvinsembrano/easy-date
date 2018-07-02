@@ -40,7 +40,7 @@
     "build": "webpack --config webpack.config.dev.js",
     "build:min": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "build:all": "yarn build && yarn build:min",
-    "test": "flow && npm build && jest",
+    "test": "flow && jest",
     "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PKGV",
     "publishRelease": "git push origin master && git push --tags && npm publish",
     "commit": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit bower.json easy-date.min.js easy-date-light.min.js package.json -m \"Release v$PKGV\""
