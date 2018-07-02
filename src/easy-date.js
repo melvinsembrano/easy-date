@@ -7,7 +7,7 @@ export type TypeProcessor = {
   fromNow: () => Date | string,
 }
 
-class EasyDate {
+export class EasyDate {
   now: ?Date
   value: number
   conversionType: ConversionType
@@ -104,11 +104,9 @@ class EasyDate {
 
 }
 
-// $FlowFixMe
-function backwardCompatibility() {
+export function backwardCompatibility() {
 
   const days = function() {
-    console.warn('This function will be deprecated on the next version')
     return new EasyDate(this, 'day')
   }
 
@@ -159,12 +157,13 @@ Object.assign(Date, {
   },
 
   tommorrow(mask?: string) {
-    console.warn('Will be deprecated.')
     return new EasyDate(1, 'day').fromNow(mask)
   },
 
 })
 
-backwardCompatibility()
 
-export default EasyDate
+export default {
+  EasyDate,
+  backwardCompatibility,
+}

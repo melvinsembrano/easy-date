@@ -1,4 +1,5 @@
-import '../src/easy-date'
+import { backwardCompatibility } from '../src/easy-date'
+backwardCompatibility()
 
 describe('EasyDate', function() {
 

@@ -1,4 +1,5 @@
-import '../src/bundled'
+import { backwardCompatibility } from '../src/bundled'
+backwardCompatibility()
 
 describe('EasyDate Formats', function() {
   it('dates will have a default format function', function() {
