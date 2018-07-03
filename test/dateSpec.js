@@ -1,4 +1,4 @@
-import { easyDate, EasyDate } from '../src/easy-date'
+import { easyDate, EasyDate } from '../easy-date'
 
 describe('Date', function() {
   it('will get the date today', function() {

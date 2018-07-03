@@ -3,12 +3,13 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'easy-date-light': './src/easy-date.js',
-    'easy-date': './src/bundled.js'
+    'easy-date-light': ['./src/easy-date.js'],
+    'easy-date': ['./src/bundled.js']
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, './')
+    path: path.resolve(__dirname, './'),
+    libraryTarget: 'umd'
   },
 
   module: {

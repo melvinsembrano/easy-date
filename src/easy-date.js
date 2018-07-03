@@ -1,18 +1,42 @@
 // @flow
 import dateFormat from './date-format'
-export type ConversionType = "day" | "week" | "month" | "year" | "hour"
 
-export type TypeProcessor = {
+type ConversionType = "day" | "week" | "month" | "year" | "hour"
+
+type TypeProcessor = {
   ago: () => Date | string,
   fromNow: () => Date | string,
 }
 
-export class EasyDate {
+class EasyDate extends Date {
+
+  static formatDate(date: Date, mask?: string): Date | string {
+    if (!!mask) {
+      return dateFormat(date, mask)
+    } else {
+      return date
+    }
+  }
+
+  static today(mask?: string) {
+    return EasyDate.formatDate(new Date(), mask)
+  }
+
+  static yesterday(mask?: string) {
+    return new EasyD(1, 'day').ago(mask)
+  }
+
+  static tomorrow(mask?: string) {
+    return new EasyD(1, 'day').fromNow(mask)
+  }
+}
+
+class EasyD {
   now: ?Date
   value: number
   conversionType: ConversionType
 
-  constructor(value: any, conversionType: ConversionType) {
+  constructor(value: number, conversionType: ConversionType) {
     this.value = parseInt(value)
     this.conversionType = conversionType
   }
@@ -90,42 +114,24 @@ export class EasyDate {
     }
   }
 
-  static formatDate(date: Date, mask?: string): Date | string {
-    if (!!mask) {
-      return dateFormat(date, mask)
-    } else {
-      return date
-    }
-  }
 
-  static today(mask?: string) {
-    return EasyDate.formatDate(new Date(), mask)
-  }
-
-  static yesterday(mask?: string) {
-    return new EasyDate(1, 'day').ago(mask)
-  }
-
-  static tomorrow(mask?: string) {
-    return new EasyDate(1, 'day').fromNow(mask)
-  }
 }
 
-export function easyDate(value: Number) {
+function easyDate(value: number) {
   const days = function() {
-    return new EasyDate(value, 'day')
+    return new EasyD(value, 'day')
   }
 
   const months = function() {
-    return new EasyDate(value, 'month')
+    return new EasyD(value, 'month')
   }
 
   const years = function() {
-    return new EasyDate(value, 'year')
+    return new EasyD(value, 'year')
   }
 
   const hours = function() {
-    return new EasyDate(value, 'hour')
+    return new EasyD(value, 'hour')
   }
 
   return {
@@ -140,22 +146,22 @@ export function easyDate(value: Number) {
   }
 }
 
-export function backwardCompatibility() {
+function backwardCompatibility() {
 
   const days = function() {
-    return new EasyDate(this, 'day')
+    return new EasyD(this, 'day')
   }
 
   const months = function() {
-    return new EasyDate(this, 'month')
+    return new EasyD(this, 'month')
   }
 
   const years = function() {
-    return new EasyDate(this, 'year')
+    return new EasyD(this, 'year')
   }
 
   const hours = function() {
-    return new EasyDate(this, 'hour')
+    return new EasyD(this, 'hour')
   }
 
   // $FlowFixMe
@@ -199,7 +205,7 @@ export function backwardCompatibility() {
 
 
 
-export default {
+export {
   EasyDate,
   easyDate,
   backwardCompatibility,

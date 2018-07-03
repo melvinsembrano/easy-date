@@ -1,4 +1,4 @@
-import { backwardCompatibility } from '../src/bundled'
+import { backwardCompatibility } from '../easy-date'
 backwardCompatibility()
 
 describe('EasyDate Formats', function() {

@@ -1,6 +1,6 @@
-import { easyDate } from '../src/easy-date'
+import { easyDate } from '../easy-date'
 
-describe('EasyDate', function() {
+describe('easyDate', function() {
 
   it('will return the correct date 5 days from now', function() {
     var now = new Date();

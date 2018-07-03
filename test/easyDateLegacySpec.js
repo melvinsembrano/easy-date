@@ -1,4 +1,4 @@
-import { backwardCompatibility } from '../src/easy-date'
+import { backwardCompatibility } from '../easy-date'
 backwardCompatibility()
 
 describe('EasyDate with legacy syntax', function() {

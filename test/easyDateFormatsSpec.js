@@ -1,4 +1,4 @@
-import { easyDate, EasyDate } from '../src/bundled'
+import { easyDate, EasyDate } from '../easy-date'
 
 describe('EasyDate Formats', function() {
   it('dates will have a default format function', function() {

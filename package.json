@@ -27,12 +27,13 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
+    "core-js": "^2.5.7",
     "flow": "^0.2.3",
     "flow-bin": "^0.75.0",
     "flow-typed": "^2.4.0",
     "jest": "^23.2.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "webpack": "^4.12.2",
+    "webpack": "^4.8.3",
     "webpack-cli": "^3.0.8",
     "webpack-merge": "^4.1.3"
   },
@@ -40,13 +41,12 @@
     "build": "webpack --config webpack.config.dev.js",
     "build:min": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "build:all": "yarn build && yarn build:min",
-    "test": "flow && jest",
+    "test": "flow && yarn build && jest",
     "tagRelease": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PKGV",
     "publishRelease": "git push origin master && git push --tags && npm publish",
     "commit": "PKGV=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit bower.json easy-date.min.js easy-date-light.min.js package.json -m \"Release v$PKGV\""
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "jest": {
     "testRegex": "test/.*(Spec|Test).js",
     "verbose": true
