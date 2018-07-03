@@ -2,7 +2,7 @@
   "name": "easy-date",
   "main": "easy-date.js",
   "description": "EasyDate is a Javascript extension for easy dates manipulations which is heavily inspired by Rails ActiveSupport::Duration class.",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "keywords": [
     "EasyDate",
     "Easy Date",
