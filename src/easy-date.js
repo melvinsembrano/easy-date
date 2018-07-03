@@ -8,7 +8,20 @@ type TypeProcessor = {
   fromNow: () => Date | string,
 }
 
-class EasyDate extends Date {
+class EasyDate {
+  _date: Date
+
+  constructor(date: Date) {
+    this._date = date
+  }
+
+  getDate() {
+    return this._date
+  }
+
+  format(mask: string) {
+    return dateFormat(this._date, mask)
+  }
 
   static formatDate(date: Date, mask?: string): Date | string {
     if (!!mask) {
