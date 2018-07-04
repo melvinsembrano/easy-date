@@ -11,8 +11,12 @@ type TypeProcessor = {
 class EasyDate {
   _date: Date
 
-  constructor(date: Date) {
-    this._date = date
+  constructor(date: Date | string) {
+    if (typeof date === 'string') {
+      this._date = new Date(date)
+    } else {
+      this._date = date
+    }
   }
 
   getDate() {
