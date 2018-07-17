@@ -1,7 +1,7 @@
 // @flow
 import dateFormat from './date-format'
 
-type ConversionType = "day" | "week" | "month" | "year" | "hour"
+type ConversionType = "day" | "week" | "month" | "year" | "hour" | "minute"
 
 type TypeProcessor = {
   ago: () => Date | string,
@@ -98,6 +98,9 @@ class EasyD {
     const { conversionType, timeProcessor } = this
     let now = this.now || new Date()
     return {
+      minute(): ?TypeProcessor {
+        return timeProcessor(now, now.setMinutes, now.getMinutes, mask)
+      },
       hour(): ?TypeProcessor {
         return timeProcessor(now, now.setHours, now.getHours, mask)
       },
@@ -151,7 +154,13 @@ function easyDate(value: number) {
     return new EasyD(value, 'hour')
   }
 
+  const minutes = function() {
+    return new EasyD(value, 'minute')
+  }
+
   return {
+    minute: minutes,
+    minutes: minutes,
     hour: hours,
     hours,
     day: days,
@@ -181,6 +190,10 @@ function backwardCompatibility() {
     return new EasyD(this, 'hour')
   }
 
+  const minutes = function() {
+    return new EasyD(this, 'minute')
+  }
+
   // $FlowFixMe
   Number.prototype.day = days;
   // $FlowFixMe
@@ -197,6 +210,8 @@ function backwardCompatibility() {
   Number.prototype.hours = hours;
   // $FlowFixMe
   Number.prototype.hour = hours;
+  // $FlowFixMe
+  Number.prototype.minute = minutes;
 
   // $FlowFixMe
   Object.assign(Date, {

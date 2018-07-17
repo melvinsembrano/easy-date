@@ -229,4 +229,45 @@ describe('easyDate', function() {
       expect(easyDate(3).hours().before(now).getHours()).toBe(9);
     });
   });
+
+  describe('#minutes', function() {
+    it('can get the number of minutes', function() {
+      expect(easyDate(2).minutes().value).toBe(2);
+      expect(easyDate(1).minutes().conversionType).toBe("minute");
+    });
+
+    it('will get the correct grammar', function() {
+      expect(easyDate(1).minute().toString()).toBe("1 minute");
+      expect(easyDate(3).minutes().toString()).toBe("3 minutes");
+      expect(easyDate(5).minutes().toString()).toBe("5 minutes");
+    });
+
+    it('#fromNow', function() {
+      var now = new Date();
+      now.setMinutes(now.getMinutes() + 3);
+      expect(easyDate(3).minutes().fromNow().getMinutes()).toBe(now.getMinutes());
+    });
+
+    it('#ago', function() {
+      var now = new Date();
+      now.setMinutes(now.getMinutes() - 3);
+      expect(easyDate(3).minutes().ago().getMinutes()).toBe(now.getMinutes());
+    });
+
+    it('#since', function() {
+      var now = new Date(2015, 3, 10, 12, 5);
+      expect(easyDate(3).minutes().since(now).getMinutes()).toBe(8);
+    });
+
+    it('#until', function() {
+      var now = new Date(2015, 9, 10, 12, 5);
+      expect(easyDate(3).minutes().until(now).getMinutes()).toBe(2);
+    });
+
+    it('#before', function() {
+      var now = new Date(2015, 9, 10, 12, 5);
+      expect(easyDate(3).minutes().before(now).getMinutes()).toBe(2);
+    });
+  });
+
 });
